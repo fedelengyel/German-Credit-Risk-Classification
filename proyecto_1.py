@@ -8,7 +8,7 @@ Original file is located at
 """
 
 # -----------------------
-# IMPORTAR Y CARGAR DATOS
+# IMPORT DATA
 # -----------------------
 
 import pandas as pd
@@ -40,7 +40,7 @@ df = kagglehub.load_dataset(
 
 
 # --------
-# LIMPIEZA
+# CLEANING
 # --------
 
 data = df.copy()
@@ -52,7 +52,7 @@ data.drop(columns=["Unnamed: 0", "Sex"], inplace=True)
 
 
 # ------------------------
-# CONVERTIR A NUMEROS TODO
+# CONVERT TO NUMBERS
 # ------------------------
 
 data["Housing"] = data["Housing"].map({"free": 0, "rent": 1, "own": 2})
@@ -99,7 +99,7 @@ data = data.replace({True: 1, False: 0})
 
 
 # ------------
-# MODELO LOGIT
+# LOGIT MODEL
 # ------------
 
 X = data.drop("Risk", axis=1)
@@ -123,14 +123,14 @@ logit.fit(x_train_scaled, y_train)
 y_pred_logit = logit.predict(x_test_scaled)
 y_proba_logit = logit.predict_proba(x_test_scaled)[:, 1]
 
-# CAMBIAR THRESHOLD (POLÍTICA MÁS ESTRICTA)
+# CHANGE THRESHOLD (STRICKTIER POLITIC)
 
 threshold = 0.67
 y_pred_logit_07 = (y_proba_logit >= threshold).astype(int)
 
 
 # --------------------
-# MODELO RANDOM FOREST
+# RANDOM FOREST MODEL
 # --------------------
 rf = RandomForestClassifier(
     n_estimators=300,
@@ -151,7 +151,7 @@ y_pred_rf_067 = (y_proba_rf >= threshold).astype(int)
 
 
 # ------------------
-# MOSTRAR RESULTADOS
+# SHOW RESULTS
 # ------------------
 
 def evaluar_modelo(y_real, y_pred, y_proba, nombre):
