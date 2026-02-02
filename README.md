@@ -2,7 +2,8 @@
 Comparativa de modelos de Machine Learning (Random Forest vs Logistic Regression) para la detección de riesgo crediticio, optimizando el umbral de decisión para reducir pérdidas financieras.
 
 # Overview
-This project implements a machine learning solution to assess credit risk and support automated loan approval decisions. By comparing Logistic Regression (interpretable baseline) and Random Forest (non-linear model), we identify the optimal approach to balance risk mitigation with business growth.
+This project implements a full machine learning pipeline to assess credit risk and support automated loan approval decisions. By comparing Logistic Regression (interpretable baseline) and Random Forest (non-linear model), the goal is to identify the best approach to balance risk mitigation with business growth.
+Beyond classification, the project provides actionable insights for credit policy design through threshold optimization and feature importance analysis.
 
 The model doesn't just classify applicants—it provides actionable insights for credit policy design through threshold optimization.
 
@@ -22,7 +23,7 @@ Impact:
 - Flexibility to adjust between risk aversion (0.67 threshold) and volume optimization (0.5 threshold)
 
 # Dataset
-- Source: German Credit Data (via: Kaggle)
+Source: German Credit Data (via: Kaggle)
 - 1,000 observations
 - Financial and demographic features
 - Target variable: Risk (good / bad)
